@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="particles"></div>
+
+<!-- Screen 1: Envelope -->
+<div id="screen1" class="screen active">
+  <div class="glass" id="screen1-content">
+    <div class="envelope" id="mainEnvelope" onclick="openEnvelopeAnim()">
+      <div class="seal">💌</div>
+    </div>
+    <p>click the seal to open</p>
+  </div>
+</div>
+
+<!-- Screen 2: Background pic + text -->
+<div id="screen2" class="screen">
+  <div class="bg" style="background-image: url('images/us1.gif')"></div>
+  <div class="glass card" id="screen2-content">
+    <h1 class="highlight">HAPPY BIRTHDAY!</h1>
+    <p class="sub">i hope this little gift will make you happy</p>
+    <p class="click" onclick="goToScreen3()">click here</p>
+  </div>
+</div>
+
+<!-- Screen 3: 3 choices -->
+<div id="screen3" class="screen">
+  <div class="bg" style="background-image: url('images/us2.jpg')"></div>
+  <div id="screen3-content">
+    <h2 class="cursive">all for you</h2>
+    <div class="gift-grid">
+      <div class="glass gift" onclick="goToScreen4()">💌<br><span>Letter</span></div>
+      <div class="glass gift" onclick="goToScreen5()">💐<br><span>Bouquet</span></div>
+      <div class="glass gift" onclick="goToScreen6()">🎂<br><span>Cake</span></div>
+      
+    </div>
+  </div>
+</div>
+
+<!-- Screen 4: Letter -->
+<div id="screen4" class="screen">
+  <div class="bg" style="background-image: url('images/us2.jpg')"></div>
+  <!-- Envelope centered only -->
+  <div class="glass message-envelope" onclick="zoomLetter()">
+    <div class="paper-peek">
+      <p class="header-text">My dearest...</p>
+      <p class="peek-text">I just want to say...</p>
+    </div>
+  </div>
+  <!-- Notebook paper popup -->
+  <div id="fullLetter" class="hidden">
+    <div class="notebook-paper">
+      <p>My dearest,</p>
+      <p>I just want to say how grateful I am to have you in my life.</p>
+      <p>Every moment with you feels like a gift.</p>
+      <p>On your special day, I pray that the Lord continues to guide you, strengthen you, and fill your heart with His peace, joy, and love.</p>
+      <p>May He bless you abundantly and lead you closer to the wonderful plans He has prepared for your life.</p>
+      <p>Happy Birthday! God bless you always.💕</p>
+      <button onclick="backToChoices()">click here to go back</button>
+    </div>
+  </div>
+</div>
+
+<!-- Screen 5: Bouquet + Verses -->
+<div id="screen5" class="screen">
+  <!-- CHANGE THIS TO YOUR BACKGROUND IMAGE -->
+  <div class="bg" style="background-image: url('images/woman.jpg')"></div>
+  <div id="screen5-content">
+    <h2 class="cursive">for you</h2>
+    <div class="bouquet-layout">
+      <!-- Left column verses -->
+      <div class="verses left">
+        <p class="verse">"I am my beloved's and my beloved is mine" - Song of Solomon 6:3</p>
+        <p class="verse">"You are altogether beautiful, my darling; there is no flaw in you." — Song of Solomon 4:7</p>
+        <p class="verse">"Grow in the grace and knowledge of our Lord" — 2 Peter 3:18</p>
+      </div>
+      <!-- Center bouquet -->
+      <div class="bouquet-center">
+        <img src="images/roses.jpg" alt="Rose Bouquet">
+        <p class="flower-text">rose your favorite flower</p>
+      </div>
+      <!-- Right column verses -->
+      <div class="verses right">
+        <p class="verse">"The Lord bless you and keep you" - Numbers 6:24</p>
+        <p class="verse">"Delight yourself in the Lord" - Psalm 37:4</p>
+        <p class="verse">"She is clothed with strength" - Proverbs 31:25</p>
+      </div>
+    </div>
+    <!-- Back button now at very bottom -->
+    <button class="back-bottom" onclick="backToChoices()">go back</button>
+  </div>
+</div>
+
+
+<!-- Screen 6: Cake + Music -->
+<div id="screen6" class="screen">
+  <div class="bg" style="background-image: url('images/her2.jpg')"></div>
+  <div id="screen6-content">
+    <h2 class="cursive">for you</h2>
+    <div class="cake-layout">
+      <!-- Music disc in center -->
+      <div class="music-disc" onclick="toggleMusic()">
+        <div class="disc">
+          <div class="disc-hole"></div>
+        </div>
+        <p class="music-text">click to play</p>
+      </div>
+    </div>
+    <!-- Back button at bottom -->
+    <button class="back-bottom" onclick="backToChoices()">go back</button>
+  </div>
+</div>
+
+<!-- Hidden audio player -->
+<audio id="birthdaySong" src="music/her.mp3" loop></audio>
+
+
+<script src="script.js"></script>
+</body>
+</html>
